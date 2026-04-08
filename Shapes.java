@@ -1,40 +1,43 @@
-class Shapes {
-    double radius, length, width, base, height;
+class Shape {
+    double side, length, breadth, base, height;
 
-    Shapes(double radius) {
-        this.radius = radius;
+    // Square
+    Shape(double side) {
+        this.side = side;
     }
 
-    Shapes(double length, double width) {
+    // Rectangle
+    Shape(double length, double breadth) {
         this.length = length;
-        this.width = width;
+        this.breadth = breadth;
     }
 
-    Shapes(double base, double height, boolean isTriangle) {
+    // Triangle
+    Shape(double base, double height, int x) {
         this.base = base;
         this.height = height;
     }
 
     double area() {
-        return 3.14 * radius * radius;
+        return side * side;
     }
 
-    double area(double length, double width) {
-        return length * width;
+    double area(double l, double b) {
+        return l * b;
     }
 
-    double area(double base, double height, boolean isTriangle) {
-        return 0.5 * base * height;
+    double area(double b, double h, int x) {
+        return 0.5 * b * h;
     }
 
     public static void main(String[] args) {
-        Shapes s1 = new Shapes(7);
-        System.out.println("Circle Area: " + s1.area());
+        Shape s1 = new Shape(4);
+        System.out.println("Square Area: " + s1.area());
 
-        Shapes s2 = new Shapes(4, 5);
-        System.out.println("Rectangle Area: " + s2.area(4, 5));
+        Shape s2 = new Shape(5, 6);
+        System.out.println("Rectangle Area: " + s2.area(5, 6));
 
-        Shapes s3 = new Shapes(6, 8, true);
-        System.out.println("Triangle Area: " + s3.area(6, 8, true));
+        Shape s3 = new Shape(3, 8, 1);
+        System.out.println("Triangle Area: " + s3.area(3, 8, 1));
     }
 }
